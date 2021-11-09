@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import {ChatAPI} from './util'
 
 const FriendStatus = ({ friend }) => {
 
@@ -10,12 +11,9 @@ const FriendStatus = ({ friend }) => {
         return () => ChatAPI.unsubscribeFromFriendStatus(friend.id, onStatusChange)
     })
 
-    return (
-        <div className='friend-status'>
-            <div>ID: {friend.id}</div>
-            <div>Status: {isOnline === null ? 'Loading...' : (isOnline ? 'Online' : 'Offline')}</div>
-        </div>
-    )
+    if (isOnline === null)
+        return 'Loading...'
+    return isOnline ? 'Online' : 'Offline'
 }
 
 export default FriendStatus
