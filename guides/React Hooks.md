@@ -45,7 +45,7 @@ We recommend using the [`exhaustive-deps`](https://github.com/facebook/react/iss
 
 **Note: If you're using Create React App, please use `react-scripts` >= 3 instead of adding it directly.**
 
-Assuming you already have ESLint installed, run:
+Assuming you already have [ESLint](https://www.npmjs.com/package/eslint) installed, run:
 
     npm i -D eslint-plugin-react-hooks
 
