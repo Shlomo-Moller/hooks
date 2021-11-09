@@ -12,9 +12,7 @@ const App = () => {
       </header>
       <div className='App-body'>
         <p>This is the body.</p>
-        <Fieldset legend='HookRuleTest' >
-          <HookRuleTest />
-        </Fieldset>
+        <Fieldset legend='HookRuleTest'><HookRuleTest /></Fieldset>
       </div>
     </div>
   )
