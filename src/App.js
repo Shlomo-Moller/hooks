@@ -1,5 +1,6 @@
 import logo from './logo.svg'
 import './App.css'
+import HookRuleTest from './components/HookRuleTest'
 
 const App = () => {
   return (
@@ -9,6 +10,7 @@ const App = () => {
         <p>My React App About React Hooks</p>
       </header>
       This is the body.
+      <HookRuleTest />
     </div>
   )
 }
