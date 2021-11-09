@@ -69,7 +69,7 @@ By default, **`useEffect` run after every render** (both after the first render 
 
 When React renders our component, it will remember the effect we used, and then run our effect after updating the DOM. This happens for every render, including the first one.
 
-The function passed to `useEffect` is going to be different on every render. This lets us read the `count` value from inside the effect without worrying about it getting stale. Every time we re-render, we schedule a different effect, replacing the previous one. In a way, this makes the effects behave more like a part of the render result — each effect “belongs” to a particular render.
+The function passed to `useEffect` is going to be **different on every render**. This lets us read the `count` value from inside the effect without worrying about it getting stale. Every time we re-render, we schedule a different effect, replacing the previous one. In a way, this makes the effects behave more like a part of the render result — each effect “belongs” to a particular render.
 
 ---
 **NOTE**
