@@ -18,7 +18,7 @@ You can think of `useEffect` Hook as `componentDidMount`, `componentDidUpdate`, 
 
 When you call `useEffect`, you’re telling React to run your “effect” function after flushing changes to the DOM. Effects are declared inside the component so they have access to its props and state. By default, React runs the effects after every render — *including* the first render.
 
-Effects may also optionally specify how to “clean up” after them by returning a function. This function runs when the component unmounts, as well as before re-running the effect due to a subsequent render, unless you tell React to skip re-subscribing.
+Effects may also optionally specify how to “clean up” after them by returning a function. This function runs when the component unmounts, as well as before re-running the effect due to a subsequent render, unless you tell React to skip the effect.
 
 
 
