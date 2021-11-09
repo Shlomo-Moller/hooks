@@ -4,6 +4,7 @@ import HookRuleTest from './components/HooksWarningsExamples/HookRuleTest'
 import Fieldset from './components/Fieldset'
 import LogHi from './components/useEffectExamples/LogHi'
 import Counter from './components/useEffectExamples/Counter'
+import Cleanup from './components/useEffectExamples/Cleanup'
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Fieldset legend='HookRuleTest'><HookRuleTest /></Fieldset>
         <Fieldset legend='LogHi'       ><LogHi        /></Fieldset>
         <Fieldset legend='Counter'     ><Counter      /></Fieldset>
+        <Fieldset legend='Cleanup'     ><Cleanup      /></Fieldset>
       </div>
     </div>
   )
