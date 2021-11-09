@@ -2,7 +2,7 @@ import logo from './logo.svg'
 import './App.css'
 import HookRuleTest from './components/HooksWarningsExamples/HookRuleTest'
 import Fieldset from './components/Fieldset'
-import LogHi from './components/LogHi'
+import LogHi from './components/useEffectExamples/LogHi'
 import Counter from './components/useEffectExamples/Counter'
 
 const App = () => {
