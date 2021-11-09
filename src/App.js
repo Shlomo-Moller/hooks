@@ -1,8 +1,9 @@
 import logo from './logo.svg'
 import './App.css'
-import HookRuleTest from './components/HookRuleTest'
+import HookRuleTest from './components/HooksWarningsExamples/HookRuleTest'
 import Fieldset from './components/Fieldset'
 import LogHi from './components/LogHi'
+import Counter from './components/useEffectExamples/Counter'
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <p>This is the body.</p>
         <Fieldset legend='HookRuleTest'><HookRuleTest /></Fieldset>
         <Fieldset legend='LogHi'       ><LogHi        /></Fieldset>
+        <Fieldset legend='Counter'     ><Counter      /></Fieldset>
       </div>
     </div>
   )
