@@ -10,7 +10,7 @@ const Counter = () => {
 
     return (
         <div className='counter'>
-            <p>Count: {count}</p>
+            <div>Count: {count}</div>
             <input type='button' value='INCREMENT' onClick={() => setCount(prev => prev + 1)} />
         </div>
     )
