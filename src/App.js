@@ -2,6 +2,7 @@ import logo from './logo.svg'
 import './App.css'
 import HookRuleTest from './components/HookRuleTest'
 import Fieldset from './components/Fieldset'
+import LogHi from './components/LogHi'
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <div className='App-body'>
         <p>This is the body.</p>
         <Fieldset legend='HookRuleTest'><HookRuleTest /></Fieldset>
+        <Fieldset legend='LogHi'       ><LogHi        /></Fieldset>
       </div>
     </div>
   )
