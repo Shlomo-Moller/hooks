@@ -54,13 +54,28 @@ src\components\Foo.js
   Line 7:8:  React Hook useEffect has a missing dependency: 'props.name'. Either include it or remove the dependency array      react-hooks/exhaustive-deps
 ```
 
-### The [Linter Plugin](https://www.npmjs.com/package/eslint-plugin-react-hooks)
+
+
+<br />
+<br />
+<br />
+
+
+
+## The [Linter Plugin](https://www.npmjs.com/package/eslint-plugin-react-hooks)
 
 Enforces these rules automatically.
 
+---
+**NOTE**
+
+We are currently **not** applying the following features. Instead, we content with the web browser's console warnings.
+
+---
+
 We recommend using the [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) rule as part of our [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) package. It warns when dependencies are specified incorrectly and suggests a fix:
 
-#### Installation
+### Installation
 
 **Note: If you're using Create React App, please use `react-scripts` >= 3 instead of adding it directly.**
 
@@ -74,7 +89,7 @@ and/or (**I have no idea...**):
 
 Then extend the recommended eslint config:
 
-```
+```json
 {
   "extends": [
     // ...
@@ -83,11 +98,11 @@ Then extend the recommended eslint config:
 }
 ```
 
-#### ESLint config (or: Custom Configuration):
+### ESLint config (or: Custom Configuration):
 
 If you want more fine-grained configuration, you can instead add a snippet like this to your ESLint configuration file:
 
-```
+```json
 {
   "plugins": [
     // ...
