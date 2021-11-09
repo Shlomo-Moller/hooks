@@ -35,6 +35,25 @@ Hooks are JS functions, but they impose two additional rules:
 - Only call Hooks **at the top level**. Don’t call Hooks inside loops, conditions, or nested functions.
 - Only call Hooks **from React function components *or* your own custom Hooks**. Don’t call Hooks from regular JS functions.
 
+### Simple test case to verify the rule works:
+
+When using the next component, a warning should appear in the web browser' console:
+
+```jsx
+function Foo(props) {
+  useEffect(() => {
+    console.log(props.name)
+  }, []) // <-- should error and offer autofix to [props.name]
+}
+```
+
+The warning should look like this:
+
+```
+src\components\Foo.js
+  Line 7:8:  React Hook useEffect has a missing dependency: 'props.name'. Either include it or remove the dependency array      react-hooks/exhaustive-deps
+```
+
 ### The [Linter Plugin](https://www.npmjs.com/package/eslint-plugin-react-hooks)
 
 Enforces these rules automatically.
@@ -80,15 +99,5 @@ If you want more fine-grained configuration, you can instead add a snippet like 
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn" // <--- THIS IS THE NEW RULE
   }
-}
-```
-
-#### Simple test case to verify the rule works:
-
-```jsx
-function Foo(props) {
-  useEffect(() => {
-    console.log(props.name)
-  }, []) // <-- should error and offer autofix to [props.name]
 }
 ```
