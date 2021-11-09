@@ -88,7 +88,7 @@ If you want more fine-grained configuration, you can instead add a snippet like 
 ```jsx
 function Foo(props) {
   useEffect(() => {
-    console.log(props.name);
-  }, []); // <-- should error and offer autofix to [props.name]
+    console.log(props.name)
+  }, []) // <-- should error and offer autofix to [props.name]
 }
 ```
