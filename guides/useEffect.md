@@ -127,9 +127,8 @@ useEffect(() => {
     return () => ChatAPI.unsubscribeFromFriendStatus(props.friend.id, onStatusChange)
 })
 
-if (isOnline === null) {
+if (isOnline === null)
     return 'Loading...'
-}
 return isOnline ? 'Online' : 'Offline'
 ```
 
