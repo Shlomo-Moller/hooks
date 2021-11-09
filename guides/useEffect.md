@@ -56,7 +56,7 @@ useEffect(() => {
 return (
     <div className='counter'>
         <p>Count: {count}</p>
-        <input type='button' value='INCREMENT' onClick={() => setCount(prev => prev + 1)}
+        <input type='button' value='INCREMENT' onClick={() => setCount(prev => prev + 1)} />
     </div>
 )
 ```
