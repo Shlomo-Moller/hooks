@@ -1,6 +1,7 @@
 import logo from './logo.svg'
 import './App.css'
 import HookRuleTest from './components/HookRuleTest'
+import Fieldset from './components/Fieldset'
 
 const App = () => {
   return (
@@ -9,8 +10,12 @@ const App = () => {
         <img src={logo} className="App-logo" alt="logo" />
         <p>My React App About React Hooks</p>
       </header>
-      This is the body.
-      <HookRuleTest />
+      <div className='App-body'>
+        <p>This is the body.</p>
+        <Fieldset legend='HookRuleTest' >
+          <HookRuleTest />
+        </Fieldset>
+      </div>
     </div>
   )
 }
