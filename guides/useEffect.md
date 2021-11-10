@@ -14,6 +14,43 @@ You can think of `useEffect` Hook as `componentDidMount`, `componentDidUpdate`, 
 
 
 
+## A more accurate conception:
+
+1. A React component's render result (its looks on the screen) is defined by the mere use of it, & by its props & state.
+1. You may not use it, so it won't render at all.
+1. You may use it somewhere inside the DOM tree (usually inside the App component inside the "root" div), simply, or [conditionally](https://reactjs.org/docs/conditional-rendering.html).
+1. If you use it simply, or conditionally & the condition is met, then it renders. It is on the DOM.
+1. It may have a style rule like `"display: none"`, or `"width: 0"`, but it is still on the DOM, & it's being affected from derived props & state or subscriptions, & its own props & state are affecting related (depending) elements in the DOM.
+1. Fore each update on its props or state, it re-renders.
+1. If you remove it from your code, or the condition ceases to be met, it's being removed from the DOM entirely.
+1. When updating, React saves energy by updating the DOM only where it defers from the updated React DOM, but still, it re-renders! even if the resulted render (the looks on the screen) is identical to the previous!
+1. A React component's re-render is an update; an update of the DOM, & it may be a change in looks, or even an entire removal from the DOM. Anyway, it affect all depending elements.
+1. When a component is removed from the DOM (not a "display: none" style application, but an actual removal), it is considered as its last update for the current lifecycle - the end of the component lifecycle.
+1. The component's lifecycle starts with the first **render**, may step through some updates - **re-renders**, & ends with the last update: its own **removal**.
+1. The component's lifecycle, in other words: It **appears** (first update. "did mount"). It may **update** ("did update"), & lastly, it is **removed** (last update. "will unmount").
+
+So, if a component use an effect, then:
+
+- Code **inside** the effect runs **after** an update, unless the update is a removal, because then it doesn't exist anymore, so it can't run... (runs after the first **render** or any **re-render**).
+- Code **returned by** the effect runs **before** an update, **including a removal update**, & **not before the first render**, because then it doesn't exist yet, so it can't run... (runs before any **re-render** or **removal**).
+- An effect **with no array** as a second argument, **depends on all** props & state values of the component, & so runs with **each** update (render).
+- An effect **with an empty array** as a second argument, **doesn't depend on any** props or state values of the component, & so **has only the initial props & state values**, but still depend on the component's mere existence, & so runs with **first render (mount)** & **removal (unmount)**.
+
+So:
+
+- Code **inside** the effect, **with no array**, runs **after first render & after each re-render**.
+- Code **inside** the effect, **with an empty array**, runs **after the first render only**.
+- Code **returned by** the effect, **with no array**, runs **before each re-render & before removal**.
+- Code **returned by** the effect, **with an empty array**, runs **before removal only**.
+
+
+
+<br />
+<br />
+<br />
+
+
+
 ## [Effect Hook](https://reactjs.org/docs/hooks-overview.html#effect-hook)
 
 When you call `useEffect`, you’re telling React to run your “effect” function after flushing changes to the DOM. Effects are declared inside the component so they have access to its props and state. By default, React runs the effects after every render — *including* the first render.
