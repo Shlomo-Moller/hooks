@@ -1,13 +1,13 @@
 import logo from './logo.svg'
 import './App.css'
-import HookRuleTest from './components/React Hooks Examples/HookRuleTest'
+import HookRuleTest from './components/React Hooks/HookRuleTest'
 import Fieldset from './components/Fieldset'
-import LogHi from './components/useEffect Examples/LogHi'
-import Counter from './components/useEffect Examples/Counter'
-import Cleanup from './components/useEffect Examples/Cleanup'
-import FriendStatus from './components/useEffect Examples/friendStatus/FriendStatus'
-import { friend } from './components/useEffect Examples/friendStatus/util'
-import Lifecycle from './components/useEffect Examples/lifecycle/Lifecycle'
+import LogHi from './components/useEffect/LogHi'
+import Counter from './components/useEffect/Counter'
+import Cleanup from './components/useEffect/Cleanup'
+import FriendStatus from './components/useEffect/friendStatus/FriendStatus'
+import { friend } from './components/useEffect/friendStatus/util'
+import Lifecycle from './components/useEffect/lifecycle/Lifecycle'
 
 const App = () => {
   return (
