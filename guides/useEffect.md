@@ -183,3 +183,83 @@ If you want to run an effect and clean it up only once (on mount and unmount), y
 If you pass an empty array, the props and state inside the effect will always have their initial values. While passing [] as the second argument is closer to the familiar `componentDidMount` & `componentWillUnmount` mental model, there are usually [better solutions](https://reactjs.org/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies) to avoid re-running effects too often. Also, don’t forget that React defers running `useEffect` until after the browser has painted, so doing extra work is less of a problem.
 
 ---
+
+
+
+<br />
+<br />
+<br />
+
+
+
+## Lifecycle Example
+
+```jsx
+const Point = ({ x, y }) => {
+
+    useEffect(() => {
+        console.log('Point did mount:', { x, y })
+        return () => console.log('Point will unmount:', { x, y })
+    }, [])
+
+    useEffect(() => console.log('Point did update:', { x, y }))
+
+    useEffect(() => console.log('x updated to:', x), [x])
+
+    useEffect(() => console.log('y updated to:', y), [y])
+
+    return (
+        <div className='lifecycle-child'>
+            {`{${x}, ${y}}`}
+        </div>
+    )
+}
+```
+
+Wrap it in a container that controls the state of the Point's {x, y} values:
+
+```jsx
+const Lifecycle = () => {
+
+    const [value, setValue] = useState({ x: 0, y: 0 })
+
+    const [show, setShow] = useState(false)
+
+    const up    = () => setValue(prev => ({ x: prev.x, y: prev.y + 1 }))
+    const left  = () => setValue(prev => ({ x: prev.x - 1, y: prev.y }))
+    const right = () => setValue(prev => ({ x: prev.x + 1, y: prev.y }))
+    const down  = () => setValue(prev => ({ x: prev.x, y: prev.y - 1 }))
+
+    return (
+        <div className='lifecycle'>
+
+            <input type='button'
+                   value={(show ? 'Hide' : 'Show') + ' point'}
+                   onClick={() => setShow(prev => !prev)} />
+
+            {show && (
+                <table>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td><input type='button' value={`\u2191`} onClick={up} /></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><input type='button' value={`\u2190`} onClick={left} /></td>
+                            <td><Point x={value.x} y={value.y} /></td>
+                            <td><input type='button' value={`\u2192`} onClick={right} /></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type='button' value={`\u2193`} onClick={down} /></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            )}
+
+        </div>
+    )
+}
+```
