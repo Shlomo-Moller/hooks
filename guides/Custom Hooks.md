@@ -27,13 +27,13 @@ Each *call* to a Hook gets isolated state.
 Consider this `FriendStatus` component from a chat application that displays a message indicating whether a friend is online or offline:
 
 ```jsx
-const FriendStatus = props => {
+const FriendStatus = ({ friend }) => {
     const [isOnline, setIsOnline] = useState(null)
 
     useEffect(() => {
         const onStatusChange = status => setIsOnline(status.isOnline)
-        ChatAPI.subscribeToFriendStatus(props.friend.id, onStatusChange)
-        return () => ChatAPI.unsubscribeFromFriendStatus(props.friend.id, onStatusChange)
+        ChatAPI.subscribeToFriendStatus(friend.id, onStatusChange)
+        return () => ChatAPI.unsubscribeFromFriendStatus(friend.id, onStatusChange)
     })
 
     if (isOnline === null)
@@ -45,18 +45,12 @@ const FriendStatus = props => {
 Now let’s say that our chat application also has a contact list, and we want to render names of online users with a green color. We could copy and paste similar logic above into our `FriendListItem` component but it wouldn’t be ideal:
 
 ```jsx
-const FriendListItem = props => {
-    const [isOnline, setIsOnline] = useState(null)
-
-    useEffect(() => {
-        const onStatusChange = status => setIsOnline(status.isOnline)
-        ChatAPI.subscribeToFriendStatus(props.friend.id, onStatusChange)
-        return () => ChatAPI.unsubscribeFromFriendStatus(props.friend.id, onStatusChange)
-    })
+const FriendListItem = ({ friend }) => {
+    // Same state & effect as in FriendStatus...
 
     return (
         <li style={{ color: isOnline ? 'green' : 'black' }}>
-            {props.friend.name}
+            {friend.name}
         </li>
     )
 }
