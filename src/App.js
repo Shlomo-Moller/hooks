@@ -8,6 +8,8 @@ import Cleanup from './components/useEffect/Cleanup'
 import FriendStatus from './components/useEffect/friendStatus/FriendStatus'
 import { friend } from './components/useEffect/friendStatus/util'
 import Lifecycle from './components/useEffect/lifecycle/Lifecycle'
+import FriendsList from './components/Custom Hooks/FriendsList'
+import FriendStatusV2 from './components/Custom Hooks/FriendStatusV2'
 
 const App = () => {
   return (
@@ -32,6 +34,8 @@ const App = () => {
         <Fieldset legend='Lifecycle'   ><Lifecycle                    /></Fieldset>
 
         {/* The "guides\Custom Hooks.md" Section */}
+        <Fieldset legend='FriendsList'   ><FriendsList                    /></Fieldset>
+        <Fieldset legend='FriendStatusV2'><FriendStatusV2 friend={friend} /></Fieldset>
 
       </div>
     </div>
