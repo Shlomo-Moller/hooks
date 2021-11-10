@@ -15,7 +15,7 @@ const Point = ({ x, y }) => {
 
     return (
         <div className='lifecycle-child'>
-            {`{${x}, ${y}}`}
+            {`(${x}, ${y})`}
         </div>
     )
 }
