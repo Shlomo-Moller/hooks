@@ -4,7 +4,7 @@ const FriendListItem = ({ friend }) => {
     const isOnline = useFriendStatus(friend.id)
 
     return (
-        <li style={{ color: isOnline ? 'green' : 'black' }}>
+        <li style={{ color: isOnline ? 'green' : 'red' }}>
             {friend.name}
         </li>
     )
