@@ -1,9 +1,16 @@
+import friends from '../../Custom Hooks/friends'
+
 const StatusControls = () => {
     return (
         <div className='status-controls'>
-            <label><input type='checkbox' id='friend-status-1' /> Connect friend 1</label>
-            <label><input type='checkbox' id='friend-status-2' /> Connect friend 2</label>
-            <label><input type='checkbox' id='friend-status-3' /> Connect friend 3</label>
+            {friends.map(
+                f => (
+                    <label key={f.id}>
+                        <input type='checkbox' id={'friend-status-' + f.id} />
+                        Connect {f.name}<br />
+                    </label>
+                )
+            )}
         </div>
     )
 }

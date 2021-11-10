@@ -5,12 +5,12 @@ import Fieldset from './components/Fieldset'
 import LogHi from './components/useEffect/LogHi'
 import Counter from './components/useEffect/Counter'
 import Cleanup from './components/useEffect/Cleanup'
-import FriendStatus from './components/useEffect/friendStatus/FriendStatus'
 import { friend } from './components/useEffect/friendStatus/util'
 import Lifecycle from './components/useEffect/lifecycle/Lifecycle'
 import FriendsList from './components/Custom Hooks/FriendsList'
 import FriendStatusV2 from './components/Custom Hooks/FriendStatusV2'
 import StatusControls from './components/useEffect/friendStatus/StatusControls'
+import FriendControl from './components/useEffect/friendStatus/FriendControl'
 
 const App = () => {
   return (
@@ -28,12 +28,12 @@ const App = () => {
         <Fieldset legend='HookRuleTest'><HookRuleTest                 /></Fieldset>
 
         <h2>useEffect</h2>
-        <Fieldset legend='LogHi'         ><LogHi                        /></Fieldset>
-        <Fieldset legend='Counter'       ><Counter                      /></Fieldset>
-        <Fieldset legend='Cleanup'       ><Cleanup                      /></Fieldset>
-        <Fieldset legend='StatusControls'><StatusControls               /></Fieldset>
-        <Fieldset legend='FriendStatus'  ><FriendStatus friend={friend} /></Fieldset>
-        <Fieldset legend='Lifecycle'     ><Lifecycle                    /></Fieldset>
+        <Fieldset legend='LogHi'         ><LogHi          /></Fieldset>
+        <Fieldset legend='Counter'       ><Counter        /></Fieldset>
+        <Fieldset legend='Cleanup'       ><Cleanup        /></Fieldset>
+        <Fieldset legend='StatusControls'><StatusControls /></Fieldset>
+        <Fieldset legend='FriendControl' ><FriendControl  /></Fieldset>
+        <Fieldset legend='Lifecycle'     ><Lifecycle      /></Fieldset>
 
         <h2>Custom Hooks</h2>
         <Fieldset legend='FriendsList'   ><FriendsList                    /></Fieldset>
