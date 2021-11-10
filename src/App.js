@@ -7,6 +7,7 @@ import Counter from './components/useEffectExamples/Counter'
 import Cleanup from './components/useEffectExamples/Cleanup'
 import FriendStatus from './components/useEffectExamples/friendStatus/FriendStatus'
 import { friend } from './components/useEffectExamples/friendStatus/util'
+import Lifecycle from './components/useEffectExamples/lifecycle/Lifecycle'
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Fieldset legend='Counter'     ><Counter                      /></Fieldset>
         <Fieldset legend='Cleanup'     ><Cleanup                      /></Fieldset>
         <Fieldset legend='FriendStatus'><FriendStatus friend={friend} /></Fieldset>
+        <Fieldset legend='Lifecycle'   ><Lifecycle                    /></Fieldset>
       </div>
     </div>
   )
