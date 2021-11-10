@@ -21,19 +21,19 @@ const App = () => {
       </header>
 
       <div className='App-body'>
-        <p>This is the body.</p>
+        <h1>Code Examples</h1>
 
-        {/* The "guides\React Hooks.md" Section */}
+        <h2>React Hooks</h2>
         <Fieldset legend='HookRuleTest'><HookRuleTest                 /></Fieldset>
 
-        {/* The "guides\useEffect.md" Section */}
+        <h2>useEffect</h2>
         <Fieldset legend='LogHi'       ><LogHi                        /></Fieldset>
         <Fieldset legend='Counter'     ><Counter                      /></Fieldset>
         <Fieldset legend='Cleanup'     ><Cleanup                      /></Fieldset>
         <Fieldset legend='FriendStatus'><FriendStatus friend={friend} /></Fieldset>
         <Fieldset legend='Lifecycle'   ><Lifecycle                    /></Fieldset>
 
-        {/* The "guides\Custom Hooks.md" Section */}
+        <h2>Custom Hooks</h2>
         <Fieldset legend='FriendsList'   ><FriendsList                    /></Fieldset>
         <Fieldset legend='FriendStatusV2'><FriendStatusV2 friend={friend} /></Fieldset>
 
