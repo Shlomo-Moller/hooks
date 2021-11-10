@@ -7,3 +7,4 @@
 }
 .lifecycle > input { min-width: 7em }
 .lifecycle > table { text-align: center }
+.lifecycle-hint { font-size: 12px }

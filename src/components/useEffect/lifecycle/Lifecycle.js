@@ -16,6 +16,13 @@ const Lifecycle = () => {
     return (
         <div className='lifecycle'>
 
+            <div className='lifecycle-hint'>
+                <h4>Inspect the web browser' console window while doing the following:</h4>
+                <li>Toggle between showing and hiding the Point component.</li>
+                <li>Change its (x, y) value.</li>
+                <li>After changing its value, hide the Point component and show it again.</li>
+            </div>
+
             <input type='button'
                    value={(show ? 'Hide' : 'Show') + ' point'}
                    onClick={() => setShow(prev => !prev)} />
