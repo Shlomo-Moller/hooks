@@ -80,20 +80,20 @@ It takes `friendID` as an argument, and returns whether our friend is online.
 Now we can use it from both components:
 
 ```jsx
-const FriendStatus = props => {
-    const isOnline = useFriendStatus(props.friend.id)
+const FriendStatus = ({ friend }) => {
+    const isOnline = useFriendStatus(friend.id)
 
     if (isOnline === null)
         return 'Loading...'
     return isOnline ? 'Online' : 'Offline'
 }
 
-const FriendListItem = props => {
-    const isOnline = useFriendStatus(props.friend.id)
+const FriendListItem = ({ friend }) => {
+    const isOnline = useFriendStatus(friend.id)
 
     return (
         <li style={{ color: isOnline ? 'green' : 'black' }}>
-            {props.friend.name}
+            {friend.name}
         </li>
     )
 }
