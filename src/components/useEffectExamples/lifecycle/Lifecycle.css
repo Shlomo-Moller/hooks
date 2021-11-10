@@ -1,0 +1,9 @@
+.lifecycle {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    min-height: 6em;
+}
+.lifecycle > input { min-width: 7em }
+.lifecycle > table { text-align: center }
