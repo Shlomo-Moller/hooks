@@ -35,6 +35,8 @@ Hooks are JS functions, but they impose two additional rules:
 - Only call Hooks **at the top level**. Don’t call Hooks inside loops, conditions, or nested functions.
 - Only call Hooks **from React function components *or* your own custom Hooks**. Don’t call Hooks from regular JS functions.
 
+<br />
+
 ### Simple test case to verify the rule works:
 
 When using the next component, a warning should appear in the web browser' console:
