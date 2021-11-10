@@ -19,5 +19,5 @@ The recommended reading order:
 
 1. `guides\React Hooks.md`
 1. `guides\useEffect.md`
-1. `guides\Other Hooks.md`
 1. `guides\Custom Hooks.md`
+1. `guides\Other Hooks.md`
