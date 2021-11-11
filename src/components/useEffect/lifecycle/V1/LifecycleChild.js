@@ -13,7 +13,7 @@ const LifecycleChild = () => {
 
     useEffect(() => {
         console.log('Value:', value, '- This runs after first render & after each re-render')
-        return () => console.log('Value:', value, '- This runs before each re-render & before removal)')
+        return () => console.log('Value:', value, '- This runs before each re-render & before removal')
     })
 
     return (
