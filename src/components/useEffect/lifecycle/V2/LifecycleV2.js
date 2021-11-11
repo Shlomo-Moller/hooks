@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import Point from './Point'
-import './Lifecycle.css'
+import './LifecycleV2.css'
 
-const Lifecycle = () => {
+const LifecycleV2 = () => {
 
     const [value, setValue] = useState({ x: 0, y: 0 })
 
@@ -53,4 +53,4 @@ const Lifecycle = () => {
     )
 }
 
-export default Lifecycle
+export default LifecycleV2
