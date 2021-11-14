@@ -4,8 +4,6 @@ The *Effect Hook* lets you perform side effects in function components.
 
 Data fetching, setting up a subscription, and manually changing the DOM in React components are all examples of side effects.
 
-You can think of `useEffect` Hook as `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount` combined.
-
 
 
 <br />
@@ -14,34 +12,114 @@ You can think of `useEffect` Hook as `componentDidMount`, `componentDidUpdate`, 
 
 
 
-## A more accurate conception:
+## `useEffect` in a Component's Lifecycle 
 
-1. A React component's render result (its looks on the screen) is defined by the mere use of it, & by its props & state.
-1. You may not use it, so it won't render at all.
-1. You may use it somewhere inside the DOM tree (usually inside the App component inside the "root" div), simply, or [conditionally](https://reactjs.org/docs/conditional-rendering.html).
-1. If you use it simply, or conditionally & the condition is met, then it renders. It is on the DOM.
-1. It may have a style rule like `"display: none"`, or `"width: 0"`, but it is still on the DOM, & it's being affected from derived props & state or subscriptions, & its own props & state are affecting related (depending) elements in the DOM.
-1. Fore each update on its props or state, it re-renders.
-1. If you remove it from your code, or the condition ceases to be met, it's being removed from the DOM entirely.
-1. When updating, React saves energy by updating the DOM only where it defers from the updated React DOM, but still, it re-renders! even if the resulted render (the looks on the screen) is identical to the previous!
-1. A React component's re-render is an update; an update of the DOM, & it may be a change in looks, or even an entire removal from the DOM. Anyway, it affect all depending elements.
-1. When a component is removed from the DOM (not a "display: none" style application, but an actual removal), it is considered as its last update for the current lifecycle - the end of the component lifecycle.
-1. The component's lifecycle starts with the first **render**, may step through some updates - **re-renders**, & ends with the last update: its own **removal**.
-1. The component's lifecycle, in other words: It **appears** (first update. "did mount"). It may **update** ("did update"), & lastly, it is **removed** (last update. "will unmount").
+### To sum up the `Functional Component Lifecycle.md` guide:
 
-So, if a component use an effect, then:
+A functional component's lifecycle...:
+- starts with the **first render**,
+- may step through some updates - **re-renders**,
+- and ends with its own **removal**.
 
-- Code **inside** the effect runs **after** an update, unless the update is a removal, because then it doesn't exist anymore, so it can't run... (runs after the first **render** or any **re-render**).
-- Code **returned by** the effect runs **before** an update, **including a removal update**, & **not before the first render**, because then it doesn't exist yet, so it can't run... (runs before any **re-render** or **removal**).
-- An effect **with no array** as a second argument, **depends on all** props & state values of the component, & so runs with **each** update (render).
-- An effect **with an empty array** as a second argument, **doesn't depend on any** props or state values of the component, & so **has only the initial props & state values**, but still depend on the component's mere existence, & so runs with **first render (mount)** & **removal (unmount)**.
+Note: A render, or re-render (update), not necessarily ends up with a visual change in the browser window, or in any displayed content.
+It is a management of the VDOM's values and state, which is a derivative of the React elements' props and states.
+
+### Functional Component With Effect
+
+`useEffect` lets us define a component reaction to any of the three phases of its element's lifecycle:
+
+- render
+- update
+- removal
+
+In more details, we can set a function to run...:
+
+- after React mounts (adds) the element to the DOM (after *first render*)
+- before React applies the element's updates to the DOM (before *re-render*)
+- after React applies the element's updates to the DOM (after *re-render*)
+- before React unmounts (removes) the element from the DOM (before *removal*)
+
+`useEffect` receives two arguments:
+
+1. The function to run **after the first render or an update**
+1. The dependencies array
+
+An effect's dependencies define what is considered as a triggering update.
+By default, the effect depend on all of the element's props & state values, and triggers when any of them changes.
+But when sending an array as the second argument, the effect only consider what is inside this array.
+If the array is empty, then the effect is independent of all the element's props and state values.
+In this case, the effect only depends on the element's mere existence: it reacts only to mount and unmount.
+
+The function `useEffect` receives may return another function to run **before an update or the removal**.
 
 So:
 
-- Code **inside** the effect, **with no array**, runs **after first render & after each re-render**.
-- Code **inside** the effect, **with an empty array**, runs **after the first render only**.
-- Code **returned by** the effect, **with no array**, runs **before each re-render & before removal**.
-- Code **returned by** the effect, **with an empty array**, runs **before removal only**.
+- **The function the effect receives** runs **after** an update, meaning: after the **first render** & before any **re-render**.
+- **The function returned from the function the effect receives** runs **before** an update, meaning: before any **re-render** & before **removal**.
+- An effect **with no array** depends on all of the element's props & state values, & so runs with the update of **any prop or state**.
+- An effect **with an array** depends only on what's inside it, & so runs with the update of **any of the dependencies**.
+- An effect **with an empty array** doesn't depend on any prop or state, & so **has only the initial props & state values**, but still depend on the component's mere existence, & so runs with **first render (mount)** & **removal (unmount)**.
+
+So:
+
+- The effect' function, with **no** array, runs **after mounting & after each update**.
+- The effect' function, with an array, runs **after mounting & after each dependency update**.
+- The effect' function, with an **empty** array, runs **after mounting only, using only the initial props & state**.
+- The function **returned** by the effect' function, with **no** array, runs **before each update & before removal**.
+- The function **returned** by the effect' function, with an array, runs **before each dependency update & before removal**.
+- The function **returned** by the effect' function, **with an empty array**, runs **before removal only, using only the initial props & state**.
+
+
+
+<br />
+<br />
+<br />
+
+
+## Simulation
+
+Consider the next component:
+
+```jsx
+const LifecycleExample = () => {
+
+    const [value, setValue] = useState(0)
+
+    const toggle = () => setValue(prev => prev ? 0 : 1)
+
+    useEffect(() => {
+        console.log('Value:', value, '- This runs after first render only, & always have the initial props & state')
+        return () => console.log('Value:', value, '- This runs before removal only, & always have the initial props & state')
+    }, [])
+
+    useEffect(() => {
+        console.log('Value:', value, '- This runs after first render & after each re-render')
+        return () => console.log('Value:', value, '- This runs before each re-render & before removal')
+    })
+
+    return (
+        <div>
+            Value: {value}
+            <input type='button' value='Toggle' onClick={toggle} />
+        </div>
+    )
+}
+```
+
+Now let's use it in another component that controls whether LifecycleExample renders or not:
+
+```jsx
+const [show, setShow] = useState(false)
+
+const toggle = () => setShow(prev => !prev)
+
+return (
+    <div className='lifecycle'>
+        <input type='button' value={(show ? 'REMOVE' : 'RENDER') + ' ELEMENT'} onClick={toggle} />
+        {show && <LifecycleChild />}
+    </div>
+)
+```
 
 
 
