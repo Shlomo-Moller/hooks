@@ -12,6 +12,7 @@ import StatusControls from './components/useEffect/friendStatus/StatusControls'
 import FriendControl from './components/useEffect/friendStatus/FriendControl'
 import Lifecycle from './components/useEffect/lifecycle/V1/Lifecycle'
 import LifecycleV2 from './components/useEffect/lifecycle/V2/LifecycleV2'
+import Parent from './components/temp/Parent'
 
 const App = () => {
   return (
@@ -29,6 +30,13 @@ const App = () => {
         <Fieldset legend='HookRuleTest'><HookRuleTest /></Fieldset>
 
         <h2>useEffect</h2>
+
+        <h3>The most classic example would be:</h3>
+
+        <Fieldset legend='Parent'><Parent /></Fieldset>
+
+        <h3>More examples:</h3>
+
         <Fieldset legend='LogHi'         ><LogHi          /></Fieldset>
         <Fieldset legend='Counter'       ><Counter        /></Fieldset>
         <Fieldset legend='Cleanup'       ><Cleanup        /></Fieldset>
