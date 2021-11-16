@@ -4,12 +4,12 @@ This project contains code examples on React Hooks, and Markdown (.md) files as 
 
 All information here is gathered from the [React website](https://reactjs.org/).
 
-<br />
-
 ---
-**NOTE**
+**NOTES**
 
-One of the main motives here is to provide a supplement to the official documentation on React since the existing documentation (currently) on `useEffect` and on component lifecycle is unsatisfactory and even a little misleading.
+1. One of the main motives here is to provide a supplement to the official documentation on React since the existing documentation (currently) on `useEffect` and on component lifecycle is unsatisfactory and even a little misleading.
+
+2. The project has few duplicates and requires little renovation, but at least for now, it is very intuitive and clear.
 
 ---
 
