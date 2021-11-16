@@ -1,4 +1,4 @@
-# [Other Hooks](https://reactjs.org/docs/hooks-overview.html#other-hooks)
+# [Other Hooks](https://reactjs.org/docs/hooks-overview.html#other-hooks) (Requires an edit)
 
 The state of each component is completely independent. Hooks are a way to reuse *stateful logic*, not state itself. In fact, each *call* to a Hook has a completely isolated state — so you can even use the same custom Hook twice in one component.
 
