@@ -71,50 +71,8 @@ Enforces these rules automatically.
 ---
 **NOTE**
 
-We are currently **not** applying the following features. Instead, we content with the web browser's console warnings.
+In this project, we are currently **not** applying the this features. Instead, we content with the web browser's console warnings. Yet, the official docs recommend using the [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) rule as part of the [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) package, and says "*It warns when dependencies are specified incorrectly and suggests a fix*".
+
+And you'll need to install [ESLint](https://www.npmjs.com/package/eslint) before applying the plugin.
 
 ---
-
-We recommend using the [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) rule as part of our [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) package. It warns when dependencies are specified incorrectly and suggests a fix:
-
-### Installation
-
-**Note: If you're using Create React App, please use `react-scripts` >= 3 instead of adding it directly.**
-
-Assuming you already have [ESLint](https://www.npmjs.com/package/eslint) installed, run:
-
-    npm i -D eslint-plugin-react-hooks
-
-and/or (**I have no idea...**):
-
-    npm i -D eslint-plugin-react-hooks@next
-
-Then extend the recommended eslint config:
-
-```json
-{
-  "extends": [
-    // ...
-    "plugin:react-hooks/recommended"
-  ]
-}
-```
-
-### ESLint config (or: Custom Configuration):
-
-If you want more fine-grained configuration, you can instead add a snippet like this to your ESLint configuration file:
-
-```json
-{
-  "plugins": [
-    // ...
-    "react-hooks"
-  ],
-  // ...
-  "rules": {
-    // ...
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn" // <--- THIS IS THE NEW RULE
-  }
-}
-```
