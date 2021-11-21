@@ -1,7 +1,7 @@
 import logo from './logo.svg'
 import './App.css'
 import HookRuleTest from './components/React Hooks/HookRuleTest'
-import Fieldset from './components/Fieldset'
+import CodeExample from './components/CodeExample'
 import LogHi from './components/useEffect/LogHi'
 import Counter from './components/useEffect/Counter'
 import Cleanup from './components/useEffect/Cleanup'
@@ -27,27 +27,27 @@ const App = () => {
         <h1>Code Examples</h1>
 
         <h2>React Hooks</h2>
-        <Fieldset legend='HookRuleTest'><HookRuleTest /></Fieldset>
+        <CodeExample title='HookRuleTest'><HookRuleTest /></CodeExample>
 
         <h2>useEffect</h2>
 
         <h3>The most classic example would be:</h3>
 
-        <Fieldset legend='Parent'><Parent /></Fieldset>
+        <CodeExample title='Parent'><Parent /></CodeExample>
 
         <h3>More examples:</h3>
 
-        <Fieldset legend='LogHi'         ><LogHi          /></Fieldset>
-        <Fieldset legend='Counter'       ><Counter        /></Fieldset>
-        <Fieldset legend='Cleanup'       ><Cleanup        /></Fieldset>
-        <Fieldset legend='StatusControls'><StatusControls /></Fieldset>
-        <Fieldset legend='FriendControl' ><FriendControl  /></Fieldset>
-        <Fieldset legend='Lifecycle'     ><Lifecycle      /></Fieldset>
-        <Fieldset legend='LifecycleV2'   ><LifecycleV2    /></Fieldset>
+        <CodeExample title='LogHi'         ><LogHi          /></CodeExample>
+        <CodeExample title='Counter'       ><Counter        /></CodeExample>
+        <CodeExample title='Cleanup'       ><Cleanup        /></CodeExample>
+        <CodeExample title='StatusControls'><StatusControls /></CodeExample>
+        <CodeExample title='FriendControl' ><FriendControl  /></CodeExample>
+        <CodeExample title='Lifecycle'     ><Lifecycle      /></CodeExample>
+        <CodeExample title='LifecycleV2'   ><LifecycleV2    /></CodeExample>
 
         <h2>Custom Hooks</h2>
-        <Fieldset legend='FriendsList'   ><FriendsList                    /></Fieldset>
-        <Fieldset legend='FriendStatusV2'><FriendStatusV2 friend={friend} /></Fieldset>
+        <CodeExample title='FriendsList'   ><FriendsList                    /></CodeExample>
+        <CodeExample title='FriendStatusV2'><FriendStatusV2 friend={friend} /></CodeExample>
 
       </div>
     </div>

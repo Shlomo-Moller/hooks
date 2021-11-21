@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Fieldset from '../Fieldset'
+import CodeExample from '../CodeExample'
 import Child from './Child'
 
 const Parent = () => {
@@ -22,9 +22,9 @@ const Parent = () => {
 
             <input type='button' value={(show ? 'REMOVE' : 'RENDER') + ' CHILD'} onClick={toggle} />
             {show && (
-                <Fieldset legend='Child'>
+                <CodeExample title='Child'>
                     <Child />
-                </Fieldset>
+                </CodeExample>
             )}
         </div>
     )
